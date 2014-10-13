@@ -7,6 +7,7 @@ from xml.sax.handler import ContentHandler
 import sys
 import os
 
+
 class KaraokeLocal(ContentHandler):
 
     def __init__(self, parametro):
@@ -23,7 +24,7 @@ class KaraokeLocal(ContentHandler):
                 diccionario = self.lista[i]
                 lista_tupla = diccionario.items()
                 for j in range(len(lista_tupla)):
-                    val_atr.append(str((lista_tupla[j])[0]) + "=" + 
+                    val_atr.append(str((lista_tupla[j])[0]) + "=" +
                                    str((lista_tupla[j])[1]))
                     if j == (len(lista_tupla) - 1):
                         print "\t".join(val_atr)
@@ -41,7 +42,8 @@ class KaraokeLocal(ContentHandler):
                         recurso = str((lista_tupla[j])[1])
                         if recurso[:7] == "http://":
                             os.system("wget -q " + recurso)
-                            diccionario["src"] = recurso[recurso.rfind('/') + 1:]
+                            diccionario["src"] = recurso[recurso.rfind('/')
+                                                         + 1:]
 
 
 if __name__ == "__main__":
